@@ -14,16 +14,13 @@
 
 add_filter( 'htmx.template_paths', static function ( $paths ) {
 	$paths[] = __DIR__ . '/templates';
-
 	return $paths;
 } );
 
 
 function htmx_shortcode_function($atts) {
-    ob_start();
-    
-    load_template( __DIR__ . '/templates/random_posts.php' );
-
+	ob_start();
+	load_template( __DIR__ . '/templates/random_posts.php' );
 	return ob_get_clean();
 }
 add_shortcode('htmx_shortcode', 'htmx_shortcode_function');
